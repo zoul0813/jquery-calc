@@ -1,5 +1,16 @@
+/*
+ * jQuery Growl Calc
+ * Version 2.0.0
+ * Last Updated 2014-02-08
+ * @requires jQuery v1.11.0 or later (untested on previous version)
+ *
+ * Examples at: http://projects.zoulcreations.com/jquery/jquery-calc/
+ * Copyright (c) 2008-2014 David Higgins
+ * 
+ */
+
 $(document).ready(function() {
-  var digits = $('#calculator .digits ul li');
+  var digits = $('#calculator .digits .digit');
   var calculator = { left: false, right: false, result: 0, operator: '+' };
   function calculate() {
     calculator.result = eval(calculator.left + calculator.operator + calculator.right);
