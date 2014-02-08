@@ -9,7 +9,7 @@
  * 
  */
 
-$(document).ready(function() {
+jQuery(function($) {
   var digits = $('#calculator .digits .digit');
   var calculator = { left: false, right: false, result: 0, operator: '+' };
   function calculate() {
@@ -17,7 +17,7 @@ $(document).ready(function() {
     $('#calculator .result').text(calculator.result);
     calculator.left = null;
     calculator.right = null;
-    leftBuffer = '';
+    leftBuffer = calculator.result + '';
     rightBuffer = '';
   }
   function isDigit(key) {
@@ -31,7 +31,8 @@ $(document).ready(function() {
   var rightBuffer = '';
 
   digits.click(function() {
-    var key = $(this).text();;
+    var key = $(this).text();
+    console.log(leftBuffer, rightBuffer);
     if(isDigit(key)) {
       if(calculator.left) {
         rightBuffer += key.toString();
@@ -41,6 +42,10 @@ $(document).ready(function() {
         $('#calculator .result').text(leftBuffer);
       }
     } else if(key != '=' && key != '.') {
+      switch(key) {
+        case '÷': key = '/'; break;
+        case '×': key = '*'; break;
+      }
       calculator.operator = key;
       calculator.left = leftBuffer;
     } else if(key == '.') {
