@@ -11,6 +11,7 @@
 
 jQuery(function($) {
   var digits = $('#calculator .digits .digit');
+  var clear = $('#calculator .clear');
   var calculator = { left: false, right: false, result: 0, operator: '+' };
   function calculate() {
     calculator.result = eval(calculator.left + calculator.operator + calculator.right);
@@ -29,6 +30,13 @@ jQuery(function($) {
   }
   var leftBuffer = '';
   var rightBuffer = '';
+
+  clear.click(function() {
+    leftBuffer = '';
+    rightBuffer = '';
+    calculator = { left: false, right: false, result: 0, operator: '+' };
+    $('#calculator .result').text(calculator.result);
+  });
 
   digits.click(function() {
     var key = $(this).text();

@@ -19,10 +19,14 @@
     font-weight: bold;
     font-size: 2em;
   }
-  .result {
+  .result, .clear {
     text-align: right;
     font-weight: bold;
     font-size: 2em;
+  }
+  .clear {
+    text-align: center;
+    cursor: pointer;
   }
   </style>
   <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -34,11 +38,17 @@
     </header>
     <div id="calculator">
       <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-2">
+          <div class="well clear">
+            Clr
+          </div>
+        </div>
+        <div class="col-sm-10">
           <div class="well result">
             0
           </div>
         </div>
+
         <div class="digits">
           <div class="col-xs-3"><div class="well digit">7</div></div>
           <div class="col-xs-3"><div class="well digit">8</div></div>
